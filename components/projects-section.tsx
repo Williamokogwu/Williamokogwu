@@ -21,7 +21,7 @@ const projects: Project[] = [
     title: "MoneyMentor",
     description:
       "Semantic search engine powered by transformer embeddings. Real-time indexing of 10M+ documents with sub-100ms query latency using HNSW approximate nearest neighbors.",
-    image: "/images/MoneyMentor.png",
+    image: "/images/Moneymentor.png",
     github: "https://github.com/MoneyMentor-09/moneymentor-frontend",
     live: "https://moneymentor-09.vercel.app/",
     technologies: ["React", "Node.js", "TypeScript", "PostgreSQL", "Supabase"],
@@ -33,7 +33,7 @@ const projects: Project[] = [
     title: "Book Ease",
     description:
       "Intelligent hotel reservation chatbot using Amazon Lex, AWS Lambda (Python), and DynamoDB to manage natural language booking requests, validate inputs, calculate costs, and securely store and retrieve reservations.",
-    image: "/images/AWSlex.png",
+    image: "/images/Awslex.png",
     github: "https://github.com/Williamokogwu/BookEase",
     live: "https://us-east-1.console.aws.amazon.com/lexv2/home?region=us-east-1#bot/PUP2BMOKGY",
     technologies: ["AWS Lex", "AWS Lambda", "Python", "AWS DynamoDB"],
