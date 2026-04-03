@@ -1,6 +1,6 @@
-# Chijioke
+# Hi,
 
-CS student building toward software engineering, cloud systems, and secure infrastructure.
+I am a CS student building toward software engineering, cloud systems, and secure infrastructure.
 
 I work across support, systems, and usability, with a growing focus on full-stack development, cloud, and security.
 
