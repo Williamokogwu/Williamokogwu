@@ -25,10 +25,15 @@ export default function SiteFooter() {
 
         <div className="space-y-4 text-left lg:text-right">
           <div className="font-header flex flex-wrap items-center gap-4 text-[0.95rem] tracking-[-0.02em] text-[color:var(--color-text-muted)] lg:justify-end sm:text-[1rem]">
-            <a className=" transition-opacity duration-200 hover:opacity-70" href="#">
+            <a className=" transition-opacity duration-200 hover:opacity-70" 
+              href="https://www.linkedin.com/in/chijioke-okogwu/"
+              target="_blank" 
+                rel="noreferrer">
               LinkedIn
             </a>
-            <a className="transition-opacity duration-200 hover:opacity-70" href="#">
+            <a className="transition-opacity duration-200 hover:opacity-70" href="https://github.com/Williamokogwu" 
+                target="_blank" 
+                rel="noreferrer">
               GitHub
             </a>
             <a
