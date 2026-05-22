@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import SiteLayout from "./components/SiteLayout";
-import WorkPreviewSection from "./components/WorkPreviewSection";
 import AboutPage from "./pages/AboutPage";
 import WorkPage from "./pages/WorkPage";
+import { workProjects } from "./data/workProjects";
 
 const THEME_STORAGE_KEY = "portfolio-theme";
 
@@ -28,38 +28,144 @@ function getInitialTheme() {
     return storedTheme;
   }
 
-  return window.matchMedia("(prefers-color-scheme: light)").matches
-    ? "light"
-    : "dark";
+  return "light";
+}
+
+const experiences = [
+  {
+    role: "IT Support Specialist",
+    organization: "University of Wisconsin - Parkside",
+    date: "Dec 2025 - May 2026",
+    summary:
+      "Diagnosed and resolved endpoint, VPN, and network configuration issues across Windows, macOS, and Ubuntu systems for 5,000+ users in an enterprise environment.",
+  },
+  {
+    role: "Operations Assistant",
+    organization: "University of Wisconsin - Parkside",
+    date: "Present",
+    summary:
+      "Coordinated scheduling and task tracking across 100+ campus facilities, maintaining consistent service delivery and on-time completion for daily operations requests.",
+  },
+  // {
+  //   role: "Cloud and Security Projects",
+  //   organization: "AWS, IAM, serverless systems",
+  //   date: "2025",
+  //   summary:
+  //     "Designing small practical systems around least-privilege access, serverless workflows, data storage, and conversational cloud tools.",
+  // },
+];
+
+function ProjectTags({ tools }) {
+  return (
+    <div className="flex flex-wrap gap-2">
+      {tools.split(", ").map((tool) => (
+        <span
+          key={tool}
+          className="rounded-full bg-[color:var(--color-chip-bg)] px-3 py-1 text-[0.78rem] leading-none text-[color:var(--color-text-muted)]"
+        >
+          {tool}
+        </span>
+      ))}
+    </div>
+  );
 }
 
 function HomePage() {
   return (
-    <section className="space-y-16 sm:space-y-20 lg:space-y-24">
-      <section className="flex min-h-screen flex-col">
-        <main className="flex flex-1 items-end">
-          <section className="w-full pb-2 sm:pb-4">
-            <div className="max-w-[76rem] space-y-8 sm:space-y-10">
-              <h1 className="font-display max-w-[28ch] text-[1.8rem] leading-[1.06] tracking-[-0.03em] text-[color:var(--color-text-primary)] sm:text-[2.55rem] sm:leading-[1.08] lg:text-[3.35rem] lg:leading-[1.06]">
-                Chijioke is an{" "}
-                <span className="italic text-[color:var(--color-accent)]">
-                  IT support specialist
-                </span>{" "}
-                and computer science student building toward software
-                engineering, cloud systems, and secure infrastructure.
-              </h1>
+    <section className="mx-auto max-w-[68rem] py-12 sm:py-16 lg:py-20">
+      <header className="space-y-7">
+        <div className="space-y-4">
+          <h1 className="text-[2.45rem] leading-tight text-[color:var(--color-text-primary)] sm:text-[3.1rem]">
+            Hi, I&apos;m Chijioke
+          </h1>
 
-              <p className="font-body max-w-[34rem] text-[1rem] leading-[1.62] tracking-[-0.02em] text-[color:var(--color-text-secondary)] sm:text-[1.2rem] sm:leading-[1.58]">
-                He works across support, systems, and usability while
-                continuing to build frontend projects and cloud-focused work
-                that strengthens his software engineering foundation.
-              </p>
-            </div>
-          </section>
-        </main>
-      </section>
+          <p className="flex items-center gap-2 text-[1.06rem] text-[color:var(--color-text-muted)]">
+            <span
+              aria-hidden="true"
+              className="h-2 w-2 rounded-full bg-[color:var(--color-accent)]"
+            />
+            currently building in IT support, cloud, and software
+          </p>
+        </div>
 
-      <WorkPreviewSection />
+        <div className="space-y-3 text-[1.08rem] leading-8 text-[color:var(--color-text-primary)]">
+          <p>
+            I like making practical systems easier to use and maintain -{" "}
+            <a
+              className="underline underline-offset-4 transition-opacity duration-200 hover:opacity-65"
+              href="mailto:okogwuc@yahoo.com"
+            >
+              let&apos;s chat
+            </a>
+          </p>
+          <p>
+            Computer science graduate focused on support, secure infrastructure,
+            frontend projects, and cloud systems.
+          </p>
+        </div>
+      </header>
+
+      <div className="mt-16 grid gap-14 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] lg:gap-20">
+        <section className="space-y-8">
+          <h2 className="text-[1.55rem] font-semibold tracking-[-0.02em]">
+            Experience
+          </h2>
+
+          <div className="space-y-8">
+            {experiences.map((experience) => (
+              <article
+                key={experience.role}
+                className="grid grid-cols-[1fr_auto] gap-x-6 gap-y-2"
+              >
+                <h3 className="text-[1.08rem] font-semibold">
+                  {experience.role}
+                </h3>
+                <p className="text-[0.98rem] text-[color:var(--color-text-muted)]">
+                  {experience.date}
+                </p>
+                <div className="col-span-2 space-y-2 pl-0 sm:pl-8">
+                  <p className="text-[1rem] text-[color:var(--color-text-secondary)]">
+                    {experience.organization}
+                  </p>
+                  <p className="max-w-[30rem] text-[0.98rem] leading-7 text-[color:var(--color-text-muted)]">
+                    {experience.summary}
+                  </p>
+                </div>
+              </article>
+            ))}
+          </div>
+        </section>
+
+        <section className="space-y-8">
+          <h2 className="text-[1.55rem] font-semibold tracking-[-0.02em]">
+            Projects
+          </h2>
+
+          <div className="space-y-10">
+            {workProjects.slice(0, 3).map((project) => (
+              <article key={project.id} className="space-y-3">
+                <div className="flex items-baseline justify-between gap-5">
+                  <h3 className="text-[1.08rem] font-semibold">
+                    {project.title}
+                  </h3>
+                  <a
+                    href={project.href}
+                    className="shrink-0 text-[0.95rem] text-[color:var(--color-text-faint)] underline underline-offset-4 transition-opacity duration-200 hover:opacity-65"
+                  >
+                    report
+                  </a>
+                </div>
+
+                <ProjectTags tools={project.tools} />
+
+                <p className="max-w-[33rem] text-[1rem] leading-7 text-[color:var(--color-text-primary)]">
+                  {project.summary}
+                </p>
+              </article>
+            ))}
+          </div>
+        </section>
+      </div>
     </section>
   );
 }
