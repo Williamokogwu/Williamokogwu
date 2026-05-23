@@ -6,6 +6,7 @@ import { workProjects } from "./data/workProjects";
 
 const THEME_STORAGE_KEY = "portfolio-theme";
 
+// Converts the URL hash into the page name the app should render.
 function getPageFromHash() {
   if (window.location.hash === "#about-page") {
     return "about";
@@ -18,6 +19,7 @@ function getPageFromHash() {
   return "home";
 }
 
+// Loads the saved theme when available, then falls back to light mode.
 function getInitialTheme() {
   if (typeof window === "undefined") {
     return "dark";
@@ -31,6 +33,7 @@ function getInitialTheme() {
   return "light";
 }
 
+// Short experience list shown on the home page.
 const experiences = [
   {
     role: "IT Support Specialist",
@@ -42,7 +45,7 @@ const experiences = [
   {
     role: "Operations Assistant",
     organization: "University of Wisconsin - Parkside",
-    date: "Present",
+    date: "May 2024 - Sep 2024",
     summary:
       "Coordinated scheduling and task tracking across 100+ campus facilities, maintaining consistent service delivery and on-time completion for daily operations requests.",
   },
@@ -55,6 +58,7 @@ const experiences = [
   // },
 ];
 
+// Renders a small pill for each technology attached to a project.
 function ProjectTags({ tools }) {
   return (
     <div className="flex flex-wrap gap-2">
@@ -70,10 +74,12 @@ function ProjectTags({ tools }) {
   );
 }
 
+// Home page: quick intro, experience summary, and the first few projects.
 function HomePage() {
   return (
     <section className="mx-auto max-w-[68rem] py-12 sm:py-16 lg:py-20">
       <header className="space-y-7">
+        {/* Intro block at the top of the home page. */}
         <div className="space-y-4">
           <h1 className="text-[2.45rem] leading-tight text-[color:var(--color-text-primary)] sm:text-[3.1rem]">
             Hi, I&apos;m Chijioke
@@ -106,6 +112,7 @@ function HomePage() {
       </header>
 
       <div className="mt-16 grid gap-14 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] lg:gap-20">
+        {/* Left column: professional experience highlights. */}
         <section className="space-y-8">
           <h2 className="text-[1.55rem] font-semibold tracking-[-0.02em]">
             Experience
@@ -136,6 +143,7 @@ function HomePage() {
           </div>
         </section>
 
+        {/* Right column: selected project previews pulled from workProjects. */}
         <section className="space-y-8">
           <h2 className="text-[1.55rem] font-semibold tracking-[-0.02em]">
             Projects
@@ -148,12 +156,20 @@ function HomePage() {
                   <h3 className="text-[1.08rem] font-semibold">
                     {project.title}
                   </h3>
-                  <a
-                    href={project.href}
-                    className="shrink-0 text-[0.95rem] text-[color:var(--color-text-faint)] underline underline-offset-4 transition-opacity duration-200 hover:opacity-65"
+
+                  <nav
+                    aria-label={`${project.title} links`}
+                    className="flex shrink-0 items-center gap-3 text-[0.95rem] text-[color:var(--color-text-faint)]"
                   >
-                    report
-                  </a>
+                    <a
+                      href={project.href}
+                      className="underline underline-offset-4 transition-opacity duration-200 hover:opacity-65"
+                      target={project.href.startsWith("http") ? "_blank" : undefined}
+                      rel={project.href.startsWith("http") ? "noreferrer" : undefined}
+                    >
+                      github
+                    </a>
+                  </nav>
                 </div>
 
                 <ProjectTags tools={project.tools} />
@@ -170,10 +186,12 @@ function HomePage() {
   );
 }
 
+// Main app shell: manages hash-based routing and theme state.
 export default function App() {
   const [page, setPage] = useState(getPageFromHash());
   const [theme, setTheme] = useState(getInitialTheme);
 
+  // Keep the current page in sync when the user clicks hash navigation links.
   useEffect(() => {
     const onHashChange = () => {
       setPage(getPageFromHash());
@@ -183,6 +201,7 @@ export default function App() {
     return () => window.removeEventListener("hashchange", onHashChange);
   }, []);
 
+  // Reset scroll position when switching between home, work, and about views.
   useEffect(() => {
     const hash = window.location.hash;
 
@@ -196,11 +215,13 @@ export default function App() {
     }
   }, [page]);
 
+  // Apply the active theme to the document and save it for future visits.
   useEffect(() => {
     document.documentElement.dataset.theme = theme;
     window.localStorage.setItem(THEME_STORAGE_KEY, theme);
   }, [theme]);
 
+  // Switch between the two theme values used by the CSS variables.
   const toggleTheme = () => {
     setTheme((currentTheme) => (currentTheme === "dark" ? "light" : "dark"));
   };

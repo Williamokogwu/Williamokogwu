@@ -1,4 +1,5 @@
 export default function SiteHeader({ currentPage, theme, onToggleTheme }) {
+  // Central nav configuration keeps labels, links, and active states in one place.
   const navLinks = [
     { label: "home", href: "#top", active: currentPage === "home" },
     { label: "work", href: "#work-page", active: currentPage === "work" },
@@ -12,6 +13,7 @@ export default function SiteHeader({ currentPage, theme, onToggleTheme }) {
 
   return (
     <header className="flex justify-end py-4">
+      {/* Text-only navigation matches the minimal portfolio style. */}
       <nav
         aria-label="Primary"
         className="flex flex-wrap items-center justify-end gap-x-8 gap-y-3 text-[1rem] leading-none text-[color:var(--color-text-primary)] sm:text-[1.08rem]"
@@ -30,6 +32,7 @@ export default function SiteHeader({ currentPage, theme, onToggleTheme }) {
           </a>
         ))}
 
+        {/* Theme toggle swaps the CSS variable theme between light and dark. */}
         <button
           type="button"
           aria-label={`Switch to ${theme === "dark" ? "light" : "dark"} mode`}

@@ -1,9 +1,11 @@
 export default function SiteFooter() {
   return (
+    // Minimal footer with copyright on the left and key external links on the right.
     <footer className="mx-auto max-w-[68rem] border-t border-[color:var(--color-border-soft)] py-6">
       <div className="flex flex-col gap-4 text-[0.95rem] text-[color:var(--color-text-muted)] sm:flex-row sm:items-center sm:justify-between">
         <p>&copy; 2026 Chijioke Okogwu</p>
 
+        {/* Footer links repeat the most important ways to connect. */}
         <nav
           aria-label="Footer links"
           className="flex flex-wrap items-center gap-x-5 gap-y-2"
