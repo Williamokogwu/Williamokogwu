@@ -1,5 +1,8 @@
+// Central project data used by both the home page and the full Work page.
+// Keeping content here prevents project copy from being duplicated in components.
 export const workProjects = [
   {
+    // Stable id used as the React key when rendering lists.
     id: "moneymentor",
     title: "MoneyMentor Mobile Finance App",
     meta: "2025 | Cross-platform mobile app",
@@ -7,7 +10,7 @@ export const workProjects = [
     summary:
       "Built a React Native finance app focused on transaction tracking, budgeting workflows, secure authentication, and real-time dashboard updates across mobile devices.",
     tools: "React Native (Expo), TypeScript, Supabase, Node.js",
-    href: "#work-page",
+    href: "https://github.com/MoneyMentor-09/React-Native-AndroidApplication",
     visual: "from-cyan-300 via-sky-500 to-blue-700",
     challenge:
       "Personal finance apps need to make account access, transaction history, and budget visibility feel immediate and trustworthy across different devices and session states.",
@@ -16,6 +19,7 @@ export const workProjects = [
     outcome:
       "The result was a cross-platform finance experience with responsive layouts, real-time dashboard updates, and smoother day-to-day budgeting and transaction review flows.",
     details: [
+      // Short impact notes shown under each project on the Work page.
       "Implemented Supabase Auth with email/password login, Google OAuth, deep linking, persistent sessions, and token refresh handling.",
       "Built transaction tracking, budgeting logic, and real-time dashboard updates to keep account activity current without manual refresh friction.",
       "Added date-range filtering, financial data visualization, and responsive mobile layouts to improve usability and navigation flows.",
@@ -29,7 +33,7 @@ export const workProjects = [
     summary:
       "Built an expense tracking platform with a React frontend and Node.js backend to support budget management, expense logging, and spending trend analysis.",
     tools: "React, Node.js, PostgreSQL, TypeScript, Playwright",
-    href: "#work-page",
+    href: "https://github.com/MoneyMentor-09/moneymentor-frontend",
     visual: "from-emerald-300 via-teal-400 to-cyan-700",
     challenge:
       "Expense tracking platforms need reliable data flow across the frontend and backend while still being easy to validate and safe to change as features expand.",
@@ -51,7 +55,7 @@ export const workProjects = [
     summary:
       "Built a serverless hotel booking assistant that handled reservations, validated user input, and managed multi-turn conversations through AWS services.",
     tools: "Python, AWS Lex, Lambda, DynamoDB",
-    href: "#work-page",
+    href: "https://github.com/Williamokogwu/BookEase",
     visual: "from-fuchsia-300 via-pink-400 to-orange-500",
     challenge:
       "Booking assistants need to collect structured reservation details without losing context between turns or failing when user input is incomplete or inconsistent.",

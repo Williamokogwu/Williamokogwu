@@ -1,25 +1,11 @@
-const focusAreas = [
-  "IT support and user-facing troubleshooting",
-  "Frontend projects with React",
-  "AWS, IAM, and cloud infrastructure fundamentals",
-  "Secure systems, networking, and practical reliability",
-];
+const accentText = "text-[color:var(--color-text-primary)]";
 
-const links = [
-  { label: "email", href: "mailto:okogwuc@yahoo.com" },
-  { label: "work", href: "#work-page" },
-  {
-    label: "resume",
-    href: "https://drive.google.com/file/d/1Nde4FpJ2kaHwWhFiU3rxT1H2d1CDr94N/view?usp=sharing",
-    external: true,
-  },
-];
-
-function TextLink({ href, children, external = false }) {
+// Reusable inline link for About page paragraphs.
+function AccentLink({ href, children, external = false }) {
   return (
     <a
       href={href}
-      className="underline underline-offset-4 transition-opacity duration-200 hover:opacity-65"
+      className="text-[color:var(--color-text-primary)] underline underline-offset-4 transition-opacity duration-200 hover:opacity-65"
       target={external ? "_blank" : undefined}
       rel={external ? "noreferrer" : undefined}
     >
@@ -28,69 +14,98 @@ function TextLink({ href, children, external = false }) {
   );
 }
 
+// Shared section wrapper so each About section keeps the same spacing and type scale.
+function AboutSection({ title, children }) {
+  return (
+    <section className="space-y-6">
+      <h2 className={`${accentText} text-[2rem] leading-tight sm:text-[2.45rem]`}>
+        {title}
+      </h2>
+      <div className="space-y-5 text-[1.08rem] leading-8 text-[color:var(--color-text-primary)] sm:text-[1.16rem] sm:leading-9">
+        {children}
+      </div>
+    </section>
+  );
+}
+
+// About page: long-form personal introduction in a centered essay layout.
 export default function AboutPage() {
   return (
-    <section id="about-page" className="mx-auto max-w-[68rem] py-12 sm:py-16 lg:py-20">
-      <div className="grid gap-14 lg:grid-cols-[minmax(0,0.7fr)_minmax(0,1fr)] lg:gap-20">
-        <header className="space-y-4">
-          {/* <p className="text-[1rem] text-[color:var(--color-text-muted)]">
-            About
+    <section id="about-page" className="mx-auto max-w-[58rem] py-14 sm:py-18 lg:py-20">
+      {/* Large page title inspired by the reference layout. */}
+      <header className="mb-20 text-center sm:mb-24">
+        <h1 className={`${accentText} font-display text-[4.2rem] leading-none sm:text-[6rem]`}>
+          About me
+        </h1>
+      </header>
+
+      <div className="space-y-14 sm:space-y-16">
+        {/* Quick overview of who you are and what you like building. */}
+        <AboutSection title="In a nutshell">
+          <p>
+            Hi there, I&apos;m Chijioke. I&apos;m a computer science student
+            with hands-on IT support experience and a growing focus on software
+            engineering, cloud systems, and secure infrastructure.
           </p>
-          <h1 className="max-w-[12ch] text-[2.35rem] leading-tight text-[color:var(--color-text-primary)] sm:text-[3rem]">
-            Support-minded developer.
-          </h1> */}
-        </header>
 
-        <div className="space-y-10">
-          <div className="space-y-5 text-[1.06rem] leading-8 text-[color:var(--color-text-primary)]">
-            <p>
-              I&apos;m Chijioke, a computer science student with hands-on IT
-              support experience and a growing focus on software engineering,
-              cloud systems, and secure infrastructure.
-            </p>
-            <p>
-              I like work that sits close to real people and real systems:
-              solving access issues, making tools easier to understand, and
-              building projects that are useful before they are flashy.
-            </p>
-          </div>
+          <p>
+            I like building things that are practical before they are flashy:
+            tools that make work easier, systems that stay understandable, and
+            support experiences that help people move with less friction.
+          </p>
+        </AboutSection>
 
-          <section className="space-y-4">
-            <h2 className="text-[1.25rem] font-semibold tracking-[-0.02em]">
-              Focus
-            </h2>
-            <ul className="space-y-3 text-[1rem] leading-7 text-[color:var(--color-text-muted)]">
-              {focusAreas.map((area) => (
-                <li key={area} className="flex gap-3">
-                  <span aria-hidden="true" className="mt-[0.72rem] h-1.5 w-1.5 shrink-0 rounded-full bg-[color:var(--color-accent)]" />
-                  <span>{area}</span>
-                </li>
-              ))}
-            </ul>
-          </section>
+        {/* Professional background and current technical focus. */}
+        <AboutSection title="Professional life">
+          <p>
+            My work sits close to real users and real systems. I spend time
+            troubleshooting endpoints, helping with access and account issues,
+            supporting internal workflows, and learning how reliable technical
+            operations are built from small, careful decisions.
+          </p>
 
-          <section className="space-y-4">
-            <h2 className="text-[1.25rem] font-semibold tracking-[-0.02em]">
-              Now
-            </h2>
-            <p className="max-w-[38rem] text-[1rem] leading-7 text-[color:var(--color-text-muted)]">
-              Currently strengthening my engineering foundation through
-              frontend work, AWS projects, security practice, and support
-              systems that keep teams moving.
-            </p>
-          </section>
+          <p>
+            Alongside support work, I build software projects with React,
+            TypeScript, Node.js, Supabase, PostgreSQL, and AWS. Recent projects
+            include a mobile finance app, a personal expense platform, a
+            serverless booking assistant, and cloud IAM practice focused on
+            least-privilege access.
+          </p>
 
-          <nav
-            aria-label="About links"
-            className="flex flex-wrap gap-x-5 gap-y-2 text-[1rem] text-[color:var(--color-text-primary)]"
-          >
-            {links.map((link) => (
-              <TextLink key={link.label} href={link.href} external={link.external}>
-                {link.label}
-              </TextLink>
-            ))}
-          </nav>
-        </div>
+          <p>
+            I&apos;m especially interested in the overlap between{" "}
+            <AccentLink href="#work-page">software engineering</AccentLink>,{" "}
+            <AccentLink href="#work-page">cloud infrastructure</AccentLink>,
+            and secure systems - the kind of work where usability, reliability,
+            and trust all matter at once.
+          </p>
+        </AboutSection>
+
+        {/* Personal note and contact links. */}
+        <AboutSection title="Personal life">
+          <p>
+            Outside of work and school, I keep learning through side projects,
+            technical reading, and hands-on practice. I enjoy breaking down
+            unfamiliar systems until they feel less mysterious and more useful.
+          </p>
+
+          <p>
+            I&apos;m always open to connecting about support, software, cloud,
+            security, or early-career engineering paths. You can reach me by{" "}
+            <AccentLink
+              href="mailto:okogwuc@yahoo.com">
+                email
+            </AccentLink> or
+            view my{" "}
+            <AccentLink
+              href="https://drive.google.com/file/d/1Nde4FpJ2kaHwWhFiU3rxT1H2d1CDr94N/view?usp=sharing"
+              external
+            >
+              resume
+            </AccentLink>
+            .
+          </p>
+        </AboutSection>
       </div>
     </section>
   );
