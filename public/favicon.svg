@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+  <style>
+    circle {
+      stroke: #121212;
+      fill: none;
+    }
+    .solid-circle {
+      fill: #121212;
+    }
+    @media (prefers-color-scheme: dark) {
+      circle {
+        stroke: #ffffff;
+      }
+      .solid-circle {
+        fill: #ffffff;
+      }
+    }
+  </style>
+  <circle cx="15" cy="12" r="6" stroke-width="1.8" />
+  <circle cx="9" cy="12" r="5" class="solid-circle" stroke-width="1.8" />
+</svg>
