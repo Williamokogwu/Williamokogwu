@@ -1,0 +1,218 @@
+.home-container {
+  width: 100%;
+  animation: fadeIn 0.4s ease-out;
+}
+
+/* Left-Aligned Editorial Hero */
+.intro-hero {
+  min-height: 60vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start; /* Changed from center to left align */
+  text-align: left;          /* Changed from center to left align */
+  padding: 3rem 0 1rem 0;
+}
+
+.hero-title {
+  font-family: 'Redaction', Georgia, serif;
+  font-size: 2rem;
+  font-weight: 400;
+  line-height: 1.35;
+  color: var(--text-color-heading);
+  max-width: 680px; /* Slightly adjusted to balance line break wraps */
+  letter-spacing: -0.015em;
+}
+
+.status-text {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.95rem;
+  margin-top: 1.25rem;
+  color: var(--text-color-light);
+  font-weight: 400;
+}
+
+/* Tooltip/Link styling for the definition joke */
+.definition-link {
+  color: #ff3b30;
+  text-decoration: underline;
+  font-weight: 500;
+  cursor: pointer;
+  transition: color 0.2s ease, opacity 0.2s ease;
+}
+
+.definition-link:hover {
+  color: #e02d25;
+  opacity: 0.9;
+}
+
+/* Scroll Prompt Decorator - Left Aligned with a single right-extending line */
+.scroll-indicator {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start; /* Changed from center */
+  gap: 1.2rem;
+  margin-top: 4.5rem;
+  color: var(--text-color-muted);
+  width: 100%;
+}
+
+.scroll-indicator .line {
+  flex-grow: 1;
+  max-width: 100%; /* Let the line extend rightward to fill the remainder of the wrapper */
+  height: 1px;
+  background-color: var(--divider-color);
+}
+
+.scroll-text {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.75rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  font-weight: 500;
+  white-space: nowrap;
+  user-select: none;
+}
+
+/* Symmetric Bold Grid Section */
+.experience-section {
+  width: 100%;
+  padding: 3rem 0;
+}
+
+.bold-projects-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 3.5rem 2.2rem;
+  width: 100%;
+}
+
+.project-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+  width: 100%;
+}
+
+/* Project Image Containers */
+.project-image-link {
+  display: block;
+  width: 100%;
+  text-decoration: none;
+}
+
+.image-wrapper {
+  background-color: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 8px;
+  overflow: hidden;
+  aspect-ratio: 16 / 9;
+  cursor: pointer;
+  transition: border-color 0.3s ease;
+  width: 100%;
+}
+
+.project-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Smooth zoom scaling animation on hover */
+.image-wrapper:hover .project-image {
+  transform: scale(1.03);
+}
+
+.project-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  padding: 0 0.15rem;
+}
+
+.project-title-text {
+  font-family: 'Redaction', Georgia, serif;
+  font-size: 1.15rem;
+  font-weight: 500;
+  color: var(--text-color-heading);
+  margin: 0;
+  letter-spacing: -0.01em;
+}
+
+.project-title-link {
+  text-decoration: none;
+  color: var(--text-color-heading);
+  transition: color 0.25s ease;
+}
+
+.project-title-link:hover {
+  color: #ff3b30;
+}
+
+.project-desc-text {
+  font-family: 'Inter', sans-serif;
+  color: var(--text-color-light);
+  font-size: 0.88rem;
+  line-height: 1.55;
+}
+
+/* Custom Skill Tags */
+.project-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-top: 0.25rem;
+}
+
+.project-tag-item {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.7rem;
+  font-weight: 500;
+  background-color: var(--card-bg);
+  color: var(--text-color-light);
+  border: 1px solid var(--card-border);
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+}
+
+/* Keyframes */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive design adjustments */
+@media (max-width: 900px) {
+  .hero-title {
+    font-size: 1.8rem;
+  }
+  
+  .bold-projects-grid {
+    gap: 3rem 1.8rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .intro-hero {
+    min-height: 50vh;
+  }
+  
+  .bold-projects-grid {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-title {
+    font-size: 1.5rem;
+  }
+}
