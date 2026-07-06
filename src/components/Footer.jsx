@@ -15,9 +15,9 @@ export default function Footer() {
           <div className="footer-divider">———— This is the footer ————</div>
         </div>
         <div className="social-links">
-          <a href="mailto:chijioke@example.com" className="social-link">Email</a>
-          <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="social-link">LinkedIn</a>
-          <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="social-link">GitHub</a>
+          <a href="mailto:okogwuc@yahoo.com" className="social-link">Email</a>
+          <a href="https://www.linkedin.com/in/chijioke-okogwu/" target="_blank" rel="noopener noreferrer" className="social-link">LinkedIn</a>
+          <a href="https://github.com/Williamokogwu" target="_blank" rel="noopener noreferrer" className="social-link">GitHub</a>
         </div>
       </div>
     </footer>
