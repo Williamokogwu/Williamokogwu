@@ -1,33 +1,57 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import './Navbar.css';
 
 export default function Navbar({ theme, toggleTheme }) {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const location = useLocation();
   const currentPath = location.pathname;
   const resumeUrl = "https://drive.google.com/file/d/1Nde4FpJ2kaHwWhFiU3rxT1H2d1CDr94N/view?usp=sharing";
+
+  const handleLinkClick = () => {
+    setIsMenuOpen(false);
+  };
+
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
 
   return (
     <header className="navbar">
       <div className="navbar-container">
         {/* Logo is a sleek, black/white overlapping circle icon */}
-        <Link to="/" className="logo-link" aria-label="Home">
+        <Link to="/" className="logo-link" aria-label="Home" onClick={handleLinkClick}>
           <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" className="logo-icon-bw">
             <circle cx="15" cy="12" r="6" strokeWidth="1.8" />
             <circle cx="9" cy="12" r="5" fill="currentColor" strokeWidth="1.8" />
           </svg>
         </Link>
 
-        <nav className="nav-controls">
+        {/* Hamburger Menu Toggle Button */}
+        <button 
+          className="hamburger-btn" 
+          onClick={toggleMenu} 
+          aria-label={isMenuOpen ? "Close menu" : "Open menu"}
+          aria-expanded={isMenuOpen}
+        >
+          <span className={`hamburger-line ${isMenuOpen ? 'open' : ''}`}></span>
+          <span className={`hamburger-line ${isMenuOpen ? 'open' : ''}`}></span>
+          <span className={`hamburger-line ${isMenuOpen ? 'open' : ''}`}></span>
+        </button>
+
+        {/* Navigation Controls Wrapper */}
+        <nav className={`nav-controls ${isMenuOpen ? 'open' : ''}`}>
           <Link 
             to="/" 
             className={currentPath === '/' ? 'active' : ''}
+            onClick={handleLinkClick}
           >
             Work
           </Link>
           <Link 
             to="/about" 
             className={currentPath === '/about' ? 'active' : ''}
+            onClick={handleLinkClick}
           >
             About
           </Link>
@@ -36,6 +60,7 @@ export default function Navbar({ theme, toggleTheme }) {
             target="_blank" 
             rel="noopener noreferrer" 
             className="nav-resume-link"
+            onClick={handleLinkClick}
           >
             Resume
           </a>

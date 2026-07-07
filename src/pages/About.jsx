@@ -1,62 +1,168 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './About.css';
 
 export default function About() {
+  const [activeSlide, setActiveSlide] = useState(0);
+
+  const slides = [
+    { id: 1, url: "/abstract.jpg", caption: "Abstract oil paint texture" },
+    { id: 2, url: "/abstract_2.jpg", caption: "Geometric graphic design" },
+    { id: 3, url: "/abstract_3.jpg", caption: "Macro water droplet abstraction" }
+  ];
+
+  const experiences = [
+    {
+      id: 1,
+      company: "University of Wisconsin - Parkside",
+      role: "IT Support Specialist",
+      year: "2024 - 2026"
+    },
+    // {
+    //   id: 2,
+    //   company: "Systems Labs",
+    //   role: "Cloud Security Infrastructure Configurator",
+    //   year: "2025"
+    // }
+  ];
+
+  const education = [
+    {
+      id: 1,
+      institution: "University of Wisconsin - Milwaukee",
+      degree: "MSc in Computer Science",
+      period: "2026 - Present"
+    },
+    {
+      id: 2,
+      institution: "University of Wisconsin - Parkside",
+      degree: "B.S. in Computer Science",
+      period: "2024 - 2026"
+    }
+  ];
+
   return (
     <section className="about-section">
       <div className="about-container">
-        <div className="about-main-grid">
-          
-          {/* Left Column: B&W Abstract Photo */}
-          <div className="about-image-side">
-            <div className="about-image-container">
-              <img 
-                src="/abstract.jpg" 
-                alt="Abstract art visualization" 
-                className="about-profile-image" 
-              />
-            </div>
-            <p className="image-caption">Abstract visualization</p>
+        
+        {/* Profile Card Header (Redesigned with custom B&W brand logo) */}
+        <div className="profile-badge-wrapper">
+          <div className="profile-badge">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" className="badge-logo-icon">
+              <circle cx="15" cy="12" r="6" strokeWidth="1.8" />
+              <circle cx="9" cy="12" r="5" fill="currentColor" strokeWidth="1.8" />
+            </svg>
+            {/* <span className="badge-name">Chijioke O</span> */}
+            <span className="badge-sep">/</span>
+            <span className="badge-page">About</span>
           </div>
-
-          {/* Right Column: Narrative Copy */}
-          <div className="about-text-side">
-            <h1 className="about-title-text">Hey! I'm Chijioke.</h1>
-            <p className="about-intro-p">
-              I'm an upcoming software developer, IT support specialist, and incoming MSc student based in Wisconsin. I build software systems that balance technical precision with straightforward, human utility.
-            </p>
-
-            <h2 className="about-subtitle-text">What I've been up to.</h2>
-            <p className="about-body-p">
-              My background bridges the gap between deep computer science fundamentals and hands-on systems administration. Recently, I've been developing full-stack financial applications, configuring serverless cloud infrastructure, and automating regression testing suites.
-            </p>
-            <p className="about-body-p">
-              Whether optimizing database indexes in PostgreSQL, configuring VPCs and IAM boundaries in AWS, or configuring secure directory servers in a lab environment, I focus on building things that are resilient, scalable, and intuitive.
-            </p>
-
-            <h2 className="about-subtitle-text">Technical expertise.</h2>
-            <p className="about-body-p">
-              I work across multiple domains using a tailored stack:
-            </p>
-            <div className="about-tech-list">
-              <div className="tech-group">
-                <span className="tech-label">Development:</span> React, Node.js, PostgreSQL, Next.js
-              </div>
-              <div className="tech-group">
-                <span className="tech-label">Systems & Cloud:</span> AWS (Lambda, DynamoDB), Active Directory, DNS/DHCP, Linux
-              </div>
-              <div className="tech-group">
-                <span className="tech-label">QA & Tools:</span> Playwright, Automated Testing, Git, MIPS Assembly
-              </div>
-            </div>
-
-            <h2 className="about-subtitle-text">Next chapters.</h2>
-            <p className="about-body-p">
-              I'm currently preparing to dive deeper into advanced computer science concepts and distributed architectures as an incoming Master’s student, while seeking my next collaborative engineering role.
-            </p>
-          </div>
-
         </div>
+
+        {/* Introduction Block */}
+        <header className="about-hero">
+          <h1 className="about-main-title">Hi, I'm Chijioke.</h1>
+          <p className="about-subtitle">Software developer & systems engineer</p>
+        </header>
+
+        {/* Biography Narrative */}
+        <div className="about-narrative">
+          <p className="narrative-paragraph">
+            Currently, I'm preparing to expand my theoretical and technical foundations as an incoming MSc Student in Computer Science and IT at University of Wisconsin - Milwaukee, while actively seeking developer or cloud systems roles.
+          </p>
+          <p className="narrative-paragraph">
+            Before that, I worked as an IT Support Specialist at University of Wisconsin - Parkside, maintaining directory services, configuring DNS/DHCP servers, and building automated internal regression testing suites.
+          </p>
+          <p className="narrative-paragraph">
+            I love all things development, infrastructure, and automation. Recently, I've been really into serverless cloud architectures, experimenting with AWS Lambda functions, DynamoDB schema lookups, Playwright test coverage, and React Native budgeting apps.
+          </p>
+          <p className="narrative-paragraph">
+            Outside of tech, you can find me watching early 2010s tv series (the long ones), watching comedy skits and touching grass.
+          </p>
+        </div>
+
+        {/* Call to Action Banner Box */}
+        {/* <div className="cta-banner">
+          <div className="cta-left">
+            <span className="cta-graphic-icon">🔥</span>
+            <div className="cta-text-content">
+              <p className="cta-header-msg">Got something cool? Let's build it :)</p>
+              <p className="cta-sub-msg">Seeking software engineering and IT systems opportunities.</p>
+            </div>
+          </div>
+          <div className="cta-right">
+            <a href="mailto:chijioke@example.com" className="say-hello-btn">
+              Say hello! ✉️
+            </a>
+          </div>
+        </div> */}
+
+        {/* Work Experiences Section */}
+        <div className="about-list-section">
+          <h2 className="list-section-title">Experiences</h2>
+          <div className="list-stack">
+            {experiences.map((exp) => (
+              <div key={exp.id} className="list-row">
+                <div className="list-row-left">
+                  <span className="list-row-bold">{exp.company}</span>
+                  <span className="list-row-light">{exp.role}</span>
+                </div>
+                <span className="list-row-right">{exp.year}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Education Section */}
+        <div className="about-list-section">
+          <h2 className="list-section-title">Education</h2>
+          <div className="list-stack">
+            {education.map((edu) => (
+              <div key={edu.id} className="list-row">
+                <div className="list-row-left">
+                  <span className="list-row-bold">{edu.institution}</span>
+                  <span className="list-row-light">{edu.degree}</span>
+                </div>
+                <span className="list-row-right">{edu.period}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Contact Links */}
+        {/* <div className="about-list-section">
+          <h2 className="list-section-title">Contact</h2>
+          <div className="contact-links-inline">
+            <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="contact-link-item">Twitter</a>
+            <span className="link-pipe">|</span>
+            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="contact-link-item">LinkedIn</a>
+            <span className="link-pipe">|</span>
+            <a href="mailto:okogwuc@yahoo.com" className="contact-link-item">Email</a>
+          </div>
+        </div> */}
+
+        {/* Image Carousel / Slider commented out per user request
+        <div className="media-carousel-section">
+          <div className="carousel-display-box">
+            <img 
+              src={slides[activeSlide].url} 
+              alt={slides[activeSlide].caption} 
+              className="carousel-slide-image"
+            />
+          </div>
+          <p className="carousel-caption">{slides[activeSlide].caption}</p>
+          
+          <div className="carousel-dots">
+            {slides.map((slide, idx) => (
+              <button
+                key={slide.id}
+                onClick={() => setActiveSlide(idx)}
+                className={`carousel-dot ${activeSlide === idx ? 'active' : ''}`}
+                aria-label={`Show slide ${idx + 1}`}
+              />
+            ))}
+          </div>
+        </div>
+        */}
+
       </div>
     </section>
   );
