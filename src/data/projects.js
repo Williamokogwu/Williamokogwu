@@ -33,7 +33,7 @@ export const workProjects = [
       "Built an expense tracking platform with a React frontend and Node.js backend to support budget management, expense logging, and spending trend analysis.",
     tools: "React, Node.js, PostgreSQL, TypeScript, Playwright",
     href: "https://github.com/MoneyMentor-09/moneymentor-frontend",
-    image: "https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&w=800&q=80",
+    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80",
     visual: "from-emerald-300 via-teal-400 to-cyan-700",
     challenge:
       "Expense tracking platforms need reliable data flow across the frontend and backend while still being easy to validate and safe to change as features expand.",

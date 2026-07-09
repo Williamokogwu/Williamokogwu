@@ -1,41 +1,75 @@
 .navbar {
   width: 100%;
-  border-bottom: 1px solid var(--border-color);
-  background-color: rgba(255, 255, 255, 0.85); /* Semitransparent for glassmorphism */
-  backdrop-filter: blur(12px);                  /* Backdrop blur */
-  -webkit-backdrop-filter: blur(12px);
-  position: sticky;                             /* Pinned header on scroll */
-  top: 0;
-  z-index: 1000;
-  transition: background-color 0.3s ease, border-color 0.3s ease;
+  /* border-bottom: 1px solid var(--border-color); */ /* Removed border line distinguishing header and body */
+  background-color: var(--bg-color);                /* Changed from glassmorphism to solid background */
+  
+  /* Commented out sticky positioning per user request */
+  /* position: sticky; */
+  /* top: 0; */
+  /* z-index: 1000; */
+  
+  transition: background-color 0.3s ease;
 }
 
 [data-theme="dark"] .navbar {
-  background-color: rgba(18, 18, 18, 0.85);   /* Dark theme semitransparent background */
+  background-color: var(--bg-color);
 }
 
 .navbar-container {
   width: 100%;
   max-width: 100%;
-  padding: 1.2rem 4rem; /* Kept reduced vertical padding */
+  padding: 1.5rem 4rem; /* Restored slightly more relaxed vertical padding for static header */
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-.logo-link {
-  display: flex;
-  align-items: center;
+/* Custom Logo Capsule Breadcrumb Pill */
+.logo-pill-link {
   text-decoration: none;
-  z-index: 1002; /* Ensure logo sits on top of overlay */
+  display: block;
+  z-index: 1002;
+}
+
+.logo-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  background-color: var(--card-bg);
+  border: 1px solid var(--card-border);
+  padding: 0.4rem 0.82rem;
+  border-radius: 20px;
+  transition: border-color 0.25s ease, background-color 0.25s ease, transform 0.25s ease;
+}
+
+.logo-pill:hover {
+  border-color: var(--border-color);
+  transform: scale(1.02);
 }
 
 .logo-icon-bw {
+  color: var(--text-color-heading);
   transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.logo-link:hover .logo-icon-bw {
-  transform: rotate(120deg) scale(1.1);
+.logo-pill:hover .logo-icon-bw {
+  transform: rotate(120deg);
+}
+
+.logo-pill-sep {
+  color: var(--accent-color); /* Matches the unified red theme accent */
+  font-family: 'Inter', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 500;
+  user-select: none;
+}
+
+.logo-pill-text {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: var(--text-color-heading);
+  letter-spacing: 0.01em;
 }
 
 /* Hamburger Toggle Button (Hidden by default on desktop) */
@@ -49,7 +83,7 @@
   border: none;
   cursor: pointer;
   padding: 0;
-  z-index: 1002; /* Sits on top of overlay menu */
+  z-index: 1002;
   position: relative;
 }
 
@@ -103,7 +137,7 @@
   font-weight: 500;
 }
 
-.nav-controls a.active::after {
+/* .nav-controls a.active::after {
   content: '';
   position: absolute;
   bottom: 0;
@@ -113,7 +147,7 @@
   background-color: var(--active-underline);
   border-radius: 2px;
   animation: slideIn 0.3s ease forwards;
-}
+} */
 
 /* Theme Toggle Button */
 .theme-toggle-btn {
@@ -157,10 +191,9 @@
   }
 
   .hamburger-btn {
-    display: flex; /* Show Hamburger Toggle */
+    display: flex;
   }
 
-  /* Transform nav links stack into Full Screen Overlay Drawer */
   .nav-controls {
     position: fixed;
     top: 0;
@@ -187,13 +220,13 @@
   }
 
   .nav-controls a {
-    font-size: 1.45rem; /* Larger typographic size in mobile menu */
+    font-size: 1.45rem;
     padding: 0.5rem 0;
   }
 
-  .nav-controls a.active::after {
+/* .nav-controls a.active::after {
     height: 3px;
-  }
+  } */
 
   .theme-toggle-btn {
     margin-top: 1rem;

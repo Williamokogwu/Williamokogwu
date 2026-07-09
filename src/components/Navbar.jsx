@@ -6,7 +6,7 @@ export default function Navbar({ theme, toggleTheme }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const location = useLocation();
   const currentPath = location.pathname;
-  const resumeUrl = "https://drive.google.com/file/d/1Nde4FpJ2kaHwWhFiU3rxT1H2d1CDr94N/view?usp=sharing";
+  const resumeUrl = "/CHIJIOKE_W_OKOGWU.pdf";
 
   const handleLinkClick = () => {
     setIsMenuOpen(false);
@@ -16,15 +16,27 @@ export default function Navbar({ theme, toggleTheme }) {
     setIsMenuOpen(!isMenuOpen);
   };
 
+  // Dynamically determine current active page name for the header capsule
+  let pageName = 'Work';
+  if (currentPath === '/about') {
+    pageName = 'About';
+  } else if (currentPath === '/resume') {
+    pageName = 'Resume';
+  }
+
   return (
     <header className="navbar">
       <div className="navbar-container">
-        {/* Logo is a sleek, black/white overlapping circle icon */}
-        <Link to="/" className="logo-link" aria-label="Home" onClick={handleLinkClick}>
-          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" className="logo-icon-bw">
-            <circle cx="15" cy="12" r="6" strokeWidth="1.8" />
-            <circle cx="9" cy="12" r="5" fill="currentColor" strokeWidth="1.8" />
-          </svg>
+        {/* Logo and breadcrumb page title wrapped in a custom capsule pill */}
+        <Link to="/" className="logo-pill-link" aria-label="Home" onClick={handleLinkClick}>
+          <div className="logo-pill">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" className="logo-icon-bw">
+              <circle cx="15" cy="12" r="6" strokeWidth="1.8" />
+              <circle cx="9" cy="12" r="5" fill="currentColor" strokeWidth="1.8" />
+            </svg>
+            <span className="logo-pill-sep">/</span>
+            <span className="logo-pill-text">{pageName}</span>
+          </div>
         </Link>
 
         {/* Hamburger Menu Toggle Button */}

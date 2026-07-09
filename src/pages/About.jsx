@@ -45,17 +45,17 @@ export default function About() {
       <div className="about-container">
         
         {/* Profile Card Header (Redesigned with custom B&W brand logo) */}
-        <div className="profile-badge-wrapper">
+        {/* <div className="profile-badge-wrapper">
           <div className="profile-badge">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" className="badge-logo-icon">
               <circle cx="15" cy="12" r="6" strokeWidth="1.8" />
               <circle cx="9" cy="12" r="5" fill="currentColor" strokeWidth="1.8" />
-            </svg>
+            </svg> */}
             {/* <span className="badge-name">Chijioke O</span> */}
-            <span className="badge-sep">/</span>
-            <span className="badge-page">About</span>
-          </div>
-        </div>
+            {/* <span className="badge-sep">/</span>
+            <span className="badge-page">About</span> */}
+          {/* </div>
+        </div> */}
 
         {/* Introduction Block */}
         <header className="about-hero">
