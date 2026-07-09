@@ -11,7 +11,7 @@
   justify-content: center;
   align-items: flex-start; /* Changed from center to left align */
   text-align: left;          /* Changed from center to left align */
-  padding: 3rem 0 1rem 0;
+  padding: 5.5rem 0 1rem 0; /* Increased top padding from 3rem to 5.5rem */
 }
 
 .hero-title {
@@ -34,7 +34,7 @@
 
 /* Tooltip/Link styling for the definition joke */
 .definition-link {
-  color: #ff3b30;
+  color: var(--accent-color);
   text-decoration: underline;
   font-weight: 500;
   cursor: pointer;
@@ -42,8 +42,7 @@
 }
 
 .definition-link:hover {
-  color: #e02d25;
-  opacity: 0.9;
+  opacity: 0.8;
 }
 
 /* Scroll Prompt Decorator - Left Aligned with a single right-extending line */
@@ -92,6 +91,11 @@
   flex-direction: column;
   gap: 0.9rem;
   width: 100%;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.project-card:hover {
+  transform: translateY(-3px);
 }
 
 /* Project Image Containers */
@@ -148,7 +152,7 @@
 }
 
 .project-title-link:hover {
-  color: #ff3b30;
+  color: var(--accent-color);
 }
 
 .project-desc-text {
@@ -175,6 +179,12 @@
   border: 1px solid var(--card-border);
   padding: 0.2rem 0.5rem;
   border-radius: 4px;
+  transition: border-color 0.3s ease, color 0.3s ease;
+}
+
+.project-card:hover .project-tag-item {
+  border-color: var(--accent-color);
+  color: var(--text-color-heading);
 }
 
 /* Keyframes */

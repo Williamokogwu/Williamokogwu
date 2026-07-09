@@ -1,6 +1,6 @@
 .portfolio-footer {
   width: 100%;
-  border-top: 1px solid var(--border-color);
+  /* border-top: 1px solid var(--border-color); */
   background-color: var(--bg-color);
   transition: background-color 0.3s ease, border-color 0.3s ease;
   margin-top: 2rem; /* Reduced from 3rem */

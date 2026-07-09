@@ -1,6 +1,6 @@
 .about-section {
   width: 100%;
-  padding: 4rem 0 6rem 0;
+  padding: 6.5rem 0 6rem 0; /* Increased top padding from 4rem to 6.5rem */
   animation: fadeIn 0.4s ease-out;
 }
 
@@ -222,7 +222,7 @@
 }
 
 .contact-link-item:hover {
-  color: #ff3b30;
+  color: var(--accent-color);
 }
 
 .link-pipe {
@@ -289,7 +289,7 @@
 }
 
 .carousel-dot.active {
-  background-color: #ff3b30; /* Highlighted orange/red dot indicator */
+  background-color: var(--accent-color); /* Highlighted dot indicator */
   transform: scale(1.2);
 }
 

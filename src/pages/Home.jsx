@@ -8,7 +8,7 @@ export default function Home() {
       {/* Editorial Hero (Left-Aligned) */}
       <section className="intro-hero">
         <h1 className="hero-title">
-          Hey! I’m Chijioke, a software developer based in Wisconsin. I’m currently seeking engineering roles and preparing for my MSc. ✌️
+          Hey! I’m Chijioke, a software developer based in Wisconsin. I’m currently seeking engineering roles and preparing for my MSc.
           {/* ✌️ */}
         </h1>
         <p className="status-text">
