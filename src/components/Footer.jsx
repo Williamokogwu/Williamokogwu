@@ -14,6 +14,7 @@ export default function Footer() {
           </div> */}
           <div className="footer-divider">© 2026 Chijioke Okogwu</div>
         </div>
+        {/* External profile links are grouped to preserve a predictable footer layout. */}
         <div className="social-links">
           <a href="mailto:okogwuc@yahoo.com" className="social-link">Email</a>
           <a href="https://www.linkedin.com/in/chijioke-okogwu/" target="_blank" rel="noopener noreferrer" className="social-link">LinkedIn</a>

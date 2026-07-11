@@ -5,6 +5,7 @@ import reactRefresh from 'eslint-plugin-react-refresh'
 import { defineConfig, globalIgnores } from 'eslint/config'
 
 export default defineConfig([
+  // Generated production assets are intentionally excluded from source linting.
   globalIgnores(['dist']),
   {
     files: ['**/*.{js,jsx}'],

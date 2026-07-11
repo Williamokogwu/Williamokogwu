@@ -3,12 +3,15 @@ import { Link, useLocation } from 'react-router-dom';
 import './Navbar.css';
 
 export default function Navbar({ theme, toggleTheme }) {
+  // Controls the full-screen navigation overlay used on smaller screens.
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  // The current route drives both active-link styling and the breadcrumb label.
   const location = useLocation();
   const currentPath = location.pathname;
   const resumeUrl = "/CHIJIOKE_W_OKOGWU.pdf";
 
   const handleLinkClick = () => {
+    // Close the mobile overlay after navigation, including navigation from the logo.
     setIsMenuOpen(false);
   };
 
@@ -16,7 +19,7 @@ export default function Navbar({ theme, toggleTheme }) {
     setIsMenuOpen(!isMenuOpen);
   };
 
-  // Dynamically determine current active page name for the header capsule
+  // Derive the breadcrumb text from the active route rather than duplicating headers per page.
   let pageName = 'Work';
   if (currentPath === '/about') {
     pageName = 'About';
@@ -27,7 +30,7 @@ export default function Navbar({ theme, toggleTheme }) {
   return (
     <header className="navbar">
       <div className="navbar-container">
-        {/* Logo and breadcrumb page title wrapped in a custom capsule pill */}
+        {/* Home link doubles as a compact logo and active-page breadcrumb. */}
         <Link to="/" className="logo-pill-link" aria-label="Home" onClick={handleLinkClick}>
           <div className="logo-pill">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" className="logo-icon-bw">
@@ -39,7 +42,7 @@ export default function Navbar({ theme, toggleTheme }) {
           </div>
         </Link>
 
-        {/* Hamburger Menu Toggle Button */}
+        {/* This control is visible only at mobile widths; CSS morphs its lines when opened. */}
         <button 
           className="hamburger-btn" 
           onClick={toggleMenu} 
@@ -51,7 +54,7 @@ export default function Navbar({ theme, toggleTheme }) {
           <span className={`hamburger-line ${isMenuOpen ? 'open' : ''}`}></span>
         </button>
 
-        {/* Navigation Controls Wrapper */}
+        {/* The same links render inline on desktop and as an overlay on mobile. */}
         <nav className={`nav-controls ${isMenuOpen ? 'open' : ''}`}>
           <Link 
             to="/" 
@@ -77,7 +80,7 @@ export default function Navbar({ theme, toggleTheme }) {
             Resume
           </a>
 
-          {/* Theme Toggle Button */}
+          {/* Icon reflects the action's destination theme, not the currently applied one. */}
           <button 
             onClick={toggleTheme} 
             className="theme-toggle-btn" 
