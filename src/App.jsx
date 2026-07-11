@@ -6,7 +6,7 @@ import Home from './pages/Home';
 import About from './pages/About';
 import './App.css';
 
-// Redirect route for '/resume' to directly open PDF in browser if typed in URL bar
+// Handles direct visits to /resume by replacing the app route with the PDF asset.
 function ResumeRedirect() {
   useEffect(() => {
     window.location.replace("/CHIJIOKE_W_OKOGWU.pdf");
@@ -19,10 +19,13 @@ function ResumeRedirect() {
 }
 
 function App() {
+  // Restore the visitor's saved preference, defaulting first-time visitors to light mode.
   const [theme, setTheme] = useState(localStorage.getItem('theme') || 'light');
 
   useEffect(() => {
+    // CSS variables use this attribute to swap the site's color palette.
     document.documentElement.setAttribute('data-theme', theme);
+    // Persist the selection so it survives page reloads and future visits.
     localStorage.setItem('theme', theme);
   }, [theme]);
 
@@ -33,10 +36,10 @@ function App() {
   return (
     <Router>
       <div className="App">
-        {/* Navbar stays globally visible on top, stretches full width */}
+        {/* Shared navigation receives the current theme and its update handler. */}
         <Navbar theme={theme} toggleTheme={toggleTheme} />
         
-        {/* Dynamic page contents switch here based on URL path */}
+        {/* Only the routed page changes; the site chrome remains consistent. */}
         <main className="main-viewport">
           <Routes>
             <Route path="/" element={<Home />} />

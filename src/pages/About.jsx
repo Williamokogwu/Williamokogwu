@@ -2,14 +2,17 @@ import React, { useState } from 'react';
 import './About.css';
 
 export default function About() {
+  // Retained for the optional carousel below so it can be re-enabled without changing its API.
   const [activeSlide, setActiveSlide] = useState(0);
 
+  // Image metadata consumed by the currently disabled carousel section.
   const slides = [
     { id: 1, url: "/abstract.jpg", caption: "Abstract oil paint texture" },
     { id: 2, url: "/abstract_2.jpg", caption: "Geometric graphic design" },
     { id: 3, url: "/abstract_3.jpg", caption: "Macro water droplet abstraction" }
   ];
 
+  // Keep timeline content separate from presentation so additional entries are easy to add.
   const experiences = [
     {
       id: 1,
@@ -25,6 +28,7 @@ export default function About() {
     // }
   ];
 
+  // Education uses the same row structure as experience for a consistent timeline layout.
   const education = [
     {
       id: 1,
@@ -63,7 +67,7 @@ export default function About() {
           <p className="about-subtitle">Software developer & systems engineer</p>
         </header>
 
-        {/* Biography Narrative */}
+        {/* Short narrative gives context before the structured experience and education lists. */}
         <div className="about-narrative">
           <p className="narrative-paragraph">
             Currently, I'm preparing to expand my theoretical and technical foundations as an incoming MSc Student in Computer Science and IT at University of Wisconsin - Milwaukee, while actively seeking developer or cloud systems roles.
@@ -95,7 +99,7 @@ export default function About() {
           </div>
         </div> */}
 
-        {/* Work Experiences Section */}
+        {/* Map entries into a reusable two-column timeline row. */}
         <div className="about-list-section">
           <h2 className="list-section-title">Experiences</h2>
           <div className="list-stack">

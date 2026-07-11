@@ -1,5 +1,5 @@
-// Central project data used by both the home page and the full Work page.
-// Keeping content here prevents project copy from being duplicated in components.
+// Canonical portfolio content. Components can render cards or future detail views
+// from this source without duplicating project copy or external links.
 export const workProjects = [
   {
     id: "moneymentor",
@@ -78,7 +78,8 @@ export const workProjects = [
     summary:
       "Configured AWS identity and infrastructure components with a least-privilege focus, combining IAM controls with practical EC2, S3, and VPC usage.",
     tools: "AWS IAM, EC2, S3, VPC",
-    href: "https://github.com/Williamokogwu/BookEase", // Placeholder or direct link if any, using Lex repo or similar
+    // Reuses the related repository until a dedicated IAM project repository is available.
+    href: "https://github.com/Williamokogwu/BookEase",
     image: "https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=800&q=80",
     visual: "from-amber-200 via-orange-400 to-rose-600",
     challenge:

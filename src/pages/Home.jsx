@@ -5,7 +5,7 @@ import './Home.css';
 export default function Home() {
   return (
     <div className="home-container">
-      {/* Editorial Hero (Left-Aligned) */}
+      {/* Introduces the portfolio before visitors reach the project collection. */}
       <section className="intro-hero">
         <h1 className="hero-title">
           Hey! I’m Chijioke, a software developer based in Wisconsin. I’m currently seeking engineering roles and preparing for my MSc.
@@ -23,14 +23,14 @@ export default function Home() {
           </a>
         </p>
         
-        {/* Scroll Divider Cue - Left Aligned with single rightward extending line */}
+        {/* Visual divider that labels the work section below. */}
         <div className="scroll-indicator">
           <p className="scroll-text">Selected Work</p>
           <span className="line"></span>
         </div>
       </section>
 
-      {/* Symmetric Bold Grid Section */}
+      {/* Project cards are generated from one shared data source to keep content consistent. */}
       <section className="experience-section" id="work">
         <div className="bold-projects-grid">
           {workProjects.map((project) => (
@@ -64,6 +64,7 @@ export default function Home() {
                 </h2>
                 <p className="project-desc-text">{project.summary}</p>
                 <div className="project-tags">
+                  {/* Tools are stored as a compact string and displayed as individual tags. */}
                   {project.tools.split(', ').map((tool, tIdx) => (
                     <span key={tIdx} className="project-tag-item">{tool}</span>
                   ))}
