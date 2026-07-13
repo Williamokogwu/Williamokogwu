@@ -47,24 +47,23 @@ export default function About() {
   return (
     <section className="about-section">
       <div className="about-container">
-        
-        {/* Profile Card Header (Redesigned with custom B&W brand logo) */}
-        {/* <div className="profile-badge-wrapper">
-          <div className="profile-badge">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" className="badge-logo-icon">
-              <circle cx="15" cy="12" r="6" strokeWidth="1.8" />
-              <circle cx="9" cy="12" r="5" fill="currentColor" strokeWidth="1.8" />
-            </svg> */}
-            {/* <span className="badge-name">Chijioke O</span> */}
-            {/* <span className="badge-sep">/</span>
-            <span className="badge-page">About</span> */}
-          {/* </div>
+
+        {/* Monogram badge — a visual anchor that gives the otherwise text-only page a focal point. */}
+        {/* <div className="monogram-badge-wrapper">
+          <div className="monogram-badge">
+            <span className="monogram-initials">CO</span>
+          </div>
+          <div className="monogram-label">
+            <span className="monogram-name">Chijioke Okogwu</span>
+            <span className="monogram-sep">/</span>
+            <span className="monogram-page">About</span>
+          </div>
         </div> */}
 
         {/* Introduction Block */}
         <header className="about-hero">
           <h1 className="about-main-title">Hi, I'm Chijioke.</h1>
-          <p className="about-subtitle">Software developer & systems engineer</p>
+          <p className="about-subtitle">Software developer &amp; systems engineer</p>
         </header>
 
         {/* Short narrative gives context before the structured experience and education lists. */}

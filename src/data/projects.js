@@ -10,7 +10,7 @@ export const workProjects = [
       "Built a React Native finance app focused on transaction tracking, budgeting workflows, secure authentication, and real-time dashboard updates across mobile devices.",
     tools: "React Native (Expo), TypeScript, Supabase, Node.js",
     href: "https://github.com/MoneyMentor-09/React-Native-AndroidApplication",
-    image: "https://images.unsplash.com/photo-1559526324-4b87b5e36e44?auto=format&fit=crop&w=800&q=80",
+    image: "https://images.unsplash.com/photo-1758876201966-a680772a41ef?q=80&w=1332&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     visual: "from-cyan-300 via-sky-500 to-blue-700",
     challenge:
       "Personal finance apps need to make account access, transaction history, and budget visibility feel immediate and trustworthy across different devices and session states.",
@@ -33,7 +33,7 @@ export const workProjects = [
       "Built an expense tracking platform with a React frontend and Node.js backend to support budget management, expense logging, and spending trend analysis.",
     tools: "React, Node.js, PostgreSQL, TypeScript, Playwright",
     href: "https://github.com/MoneyMentor-09/moneymentor-frontend",
-    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80",
+    image: "https://images.unsplash.com/photo-1780510418967-e0e3ae2109e2?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     visual: "from-emerald-300 via-teal-400 to-cyan-700",
     challenge:
       "Expense tracking platforms need reliable data flow across the frontend and backend while still being easy to validate and safe to change as features expand.",
@@ -56,7 +56,7 @@ export const workProjects = [
       "Built a serverless hotel booking assistant that handled reservations, validated user input, and managed multi-turn conversations through AWS services.",
     tools: "Python, AWS Lex, Lambda, DynamoDB",
     href: "https://github.com/Williamokogwu/BookEase",
-    image: "https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80",
+    image: "https://images.unsplash.com/photo-1587813368302-70f35d8eac81?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     visual: "from-fuchsia-300 via-pink-400 to-orange-500",
     challenge:
       "Booking assistants need to collect structured reservation details without losing context between turns or failing when user input is incomplete or inconsistent.",
@@ -80,7 +80,7 @@ export const workProjects = [
     tools: "AWS IAM, EC2, S3, VPC",
     // Reuses the related repository until a dedicated IAM project repository is available.
     href: "https://github.com/Williamokogwu/BookEase",
-    image: "https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=800&q=80",
+    image: "https://images.unsplash.com/photo-1728710718080-3cf64d995d2c?q=80&w=764&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     visual: "from-amber-200 via-orange-400 to-rose-600",
     challenge:
       "Cloud environments become risky quickly when permissions are overly broad or identity boundaries are not designed with clear operational roles in mind.",

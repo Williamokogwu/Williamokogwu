@@ -8,7 +8,9 @@ export default function Home() {
       {/* Introduces the portfolio before visitors reach the project collection. */}
       <section className="intro-hero">
         <h1 className="hero-title">
-          Hey! I’m Chijioke, a software developer based in Wisconsin. I’m currently seeking engineering roles and preparing for my MSc.
+          Hey! I'm Chijioke, a software developer based in Wisconsin. I'm currently seeking engineering roles and preparing for my MSc.
+          {/* Blinking cursor gives the hero a live, developer-terminal personality. */}
+          <span className="cursor-blink">|</span>
           {/* ✌️ */}
         </h1>
         <p className="status-text">
@@ -33,7 +35,7 @@ export default function Home() {
       {/* Project cards are generated from one shared data source to keep content consistent. */}
       <section className="experience-section" id="work">
         <div className="bold-projects-grid">
-          {workProjects.map((project) => (
+          {workProjects.map((project, idx) => (
             <div key={project.id} className="project-card">
               <a 
                 href={project.href} 
@@ -49,9 +51,21 @@ export default function Home() {
                     loading="lazy" 
                     className="project-image"
                   />
+                  {/* Role badge fades in on image hover. */}
+                  <div className="image-hover-overlay">
+                    <span className="overlay-role-text">
+                      {project.role}
+                      <svg className="overlay-arrow" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                        <line x1="7" y1="17" x2="17" y2="7"/>
+                        <polyline points="7 7 17 7 17 17"/>
+                      </svg>
+                    </span>
+                  </div>
                 </div>
               </a>
               <div className="project-info">
+                {/* Index label sits above the title — inline, never clips. */}
+                <span className="card-index-number">{String(idx + 1).padStart(2, '0')}</span>
                 <h2 className="project-title-text">
                   <a 
                     href={project.href} 

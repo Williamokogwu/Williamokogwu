@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "@fontsource/redaction": "^5.2.5",
+    "keen-slider": "^6.8.6",
     "react": "^19.2.7",
     "react-dom": "^19.2.7",
     "react-router-dom": "^7.18.1"

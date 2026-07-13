@@ -58,6 +58,22 @@
   transition: color 0.25s ease;
 }
 
+/* Icon + text side-by-side layout for the social links */
+.social-link.icon-link {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.social-link.icon-link svg {
+  transition: transform 0.25s ease;
+  flex-shrink: 0;
+}
+
+.social-link.icon-link:hover svg {
+  transform: scale(1.1);
+}
+
 .social-link::after {
   content: '';
   position: absolute;

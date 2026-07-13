@@ -33,12 +33,10 @@ export default function Navbar({ theme, toggleTheme }) {
         {/* Home link doubles as a compact logo and active-page breadcrumb. */}
         <Link to="/" className="logo-pill-link" aria-label="Home" onClick={handleLinkClick}>
           <div className="logo-pill">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" className="logo-icon-bw">
-              <circle cx="15" cy="12" r="6" strokeWidth="1.8" />
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" className="logo-icon-bw">
               <circle cx="9" cy="12" r="5" fill="currentColor" strokeWidth="1.8" />
+              <circle cx="15" cy="12" r="6" strokeWidth="1.8" />
             </svg>
-            <span className="logo-pill-sep">/</span>
-            <span className="logo-pill-text">{pageName}</span>
           </div>
         </Link>
 
@@ -61,14 +59,14 @@ export default function Navbar({ theme, toggleTheme }) {
             className={currentPath === '/' ? 'active' : ''}
             onClick={handleLinkClick}
           >
-            Work
+            work
           </Link>
           <Link 
             to="/about" 
             className={currentPath === '/about' ? 'active' : ''}
             onClick={handleLinkClick}
           >
-            About
+            about
           </Link>
           <a 
             href={resumeUrl} 
@@ -77,7 +75,7 @@ export default function Navbar({ theme, toggleTheme }) {
             className="nav-resume-link"
             onClick={handleLinkClick}
           >
-            Resume
+            resume
           </a>
 
           {/* Icon reflects the action's destination theme, not the currently applied one. */}

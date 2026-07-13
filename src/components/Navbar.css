@@ -34,12 +34,10 @@
 .logo-pill {
   display: inline-flex;
   align-items: center;
-  gap: 0.55rem;
-  background-color: var(--card-bg);
-  border: 1px solid var(--card-border);
-  padding: 0.4rem 0.82rem;
-  border-radius: 20px;
-  transition: border-color 0.25s ease, background-color 0.25s ease, transform 0.25s ease;
+  justify-content: center;
+  background: none;
+  border: none;
+  transition: transform 0.25s ease;
 }
 
 .logo-pill:hover {
