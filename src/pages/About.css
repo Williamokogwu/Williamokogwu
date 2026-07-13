@@ -1,7 +1,7 @@
 .about-section {
   width: 100%;
   padding: 6.5rem 0 6rem 0; /* Increased top padding from 4rem to 6.5rem */
-  animation: fadeIn 0.4s ease-out;
+  animation: fadeIn 0.75s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .about-container {
@@ -12,26 +12,61 @@
   padding: 0 1rem;
 }
 
-/* File Badge Header */
-.profile-badge-wrapper {
+/* Monogram Badge — visual identity anchor for the About page */
+.monogram-badge-wrapper {
   display: flex;
-  justify-content: center;
-  margin-bottom: 3.5rem;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 2.5rem;
 }
 
-.profile-badge {
-  display: inline-flex;
+.monogram-badge {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background-color: var(--text-color-heading);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.monogram-badge:hover {
+  transform: rotate(-10deg) scale(1.05);
+}
+
+.monogram-initials {
+  font-family: 'Redaction', Georgia, serif;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--bg-color);
+  letter-spacing: 0.05em;
+  user-select: none;
+}
+
+.monogram-label {
+  display: flex;
   align-items: center;
   gap: 0.5rem;
-  background-color: var(--card-bg);
-  border: 1px solid var(--card-border);
-  padding: 0.4rem 0.8rem;
-  border-radius: 20px;
   font-family: 'Inter', sans-serif;
   font-size: 0.82rem;
   color: var(--text-color-light);
-  user-select: none;
 }
+
+.monogram-name {
+  font-weight: 500;
+  color: var(--text-color-heading);
+}
+
+.monogram-sep {
+  color: var(--text-color-muted);
+}
+
+.monogram-page {
+  color: var(--text-color-muted);
+}
+
 
 .badge-folder-icon {
   font-size: 0.9rem;
@@ -297,7 +332,7 @@
 @keyframes fadeIn {
   from {
     opacity: 0;
-    transform: translateY(10px);
+    transform: translateY(16px);
   }
   to {
     opacity: 1;
